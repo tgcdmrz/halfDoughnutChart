@@ -1,0 +1,26 @@
+{
+    "visual": {
+        "name": "halfDoughnutChart",
+        "displayName": "halfDoughnutChart",
+        "guid": "halfDoughnutChart4C5B5C9411464A809732E94F3391AD4C",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Half Doughnut Chart",
+        "supportUrl": "https://github.com/tgcdmrz/halfDoughnutChart",
+        "gitHubUrl": "https://github.com/tgcdmrz/halfDoughnutChart"
+    },
+    "apiVersion": "5.3.0",
+    "author": {
+        "name": "Tugce Demiroz Eren",
+        "email": "tugcedemiroz92@gmail.com"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": [],
+    "version": "1.0.0.0"
+}

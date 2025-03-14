@@ -1,0 +1,28 @@
+p {
+    font-size: 20px;
+    font-weight: bold;
+    em {
+        background: yellow;
+        padding: 5px;
+        
+    }
+}
+
+.halfDoughnut {
+    .arc {
+        path {
+            stroke: #fff;
+            stroke-width: 1px;
+            transition: opacity 0.3s;
+            
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        
+        text {
+            font-family: "Segoe UI", sans-serif;
+            pointer-events: none;
+        }
+    }
+}

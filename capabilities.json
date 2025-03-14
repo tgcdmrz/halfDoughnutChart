@@ -1,0 +1,184 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Category",
+            "name": "category",
+            "kind": "Grouping",
+            "description": "Categories to split the doughnut into segments"
+        },
+        {
+            "displayName": "Values",
+            "name": "values",
+            "kind": "Measure",
+            "description": "Values to determine segment sizes"
+        },
+        {
+            "displayName": "Details",
+            "name": "details",
+            "kind": "Grouping",
+            "description": "Additional details for segments (optional)"
+        }
+    ],
+    "objects": {
+        "chartOptions": {
+            "displayName": "Chart Options",
+            "description": "General chart configuration options",
+            "properties": {
+                "startAngle": {
+                    "displayName": "Start Angle (°)",
+                    "description": "Starting angle of the half doughnut (in degrees)",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "endAngle": {
+                    "displayName": "End Angle (°)",
+                    "description": "Ending angle of the half doughnut (in degrees)",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "innerRadius": {
+                    "displayName": "Inner Radius (%)",
+                    "description": "Size of the inner circle (as percentage)",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "showLabels": {
+                    "displayName": "Show Labels",
+                    "description": "Display value labels",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+        "labels": {
+            "displayName": "Labels",
+            "description": "Label settings",
+            "properties": {
+                "fontSize": {
+                    "displayName": "Font Size",
+                    "description": "Font size for labels",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "color": {
+                    "displayName": "Color",
+                    "description": "Font color for labels",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "showPercentage": {
+                    "displayName": "Show Percentage",
+                    "description": "Display percentage values",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+        "categoryColors": {
+            "displayName": "Category Colors",
+            "description": "Color settings for categories",
+            "properties": {
+                "fillType": {
+                    "displayName": "Color Mode",
+                    "description": "How to color chart segments",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Default (Power BI)",
+                                "value": "default"
+                            },
+                            {
+                                "displayName": "Single Color",
+                                "value": "custom"
+                            },
+                            {
+                                "displayName": "By Category",
+                                "value": "perCategory"
+                            }
+                        ]
+                    }
+                },
+                "defaultColor": {
+                    "displayName": "Default Color",
+                    "description": "Default color for all categories (when using Single Color mode)",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "categoryColor": {
+            "displayName": "Individual Colors",
+            "description": "Color for each category (when using By Category mode)",
+            "properties": {
+                "fill": {
+                    "displayName": "Color",
+                    "description": "The color for this category",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "category": {
+                        "max": 100
+                    },
+                    "values": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "category"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": {
+                            "count": 1000
+                        }
+                    }
+                },
+                "values": {
+                    "select": [
+                        {
+                            "bind": {
+                                "to": "values"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "supportsHighlight": true,
+    "sorting": {
+        "default": {}
+    },
+    "privileges": []
+}
